@@ -5,3 +5,4 @@ import './majorityElement';
 import './maxProfit';
 import './romanToInt';
 import './lengthOfLastWord';
+import './longestCommonPrefix';
