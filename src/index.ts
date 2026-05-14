@@ -8,3 +8,5 @@ import './lengthOfLastWord';
 import './longestCommonPrefix';
 import './strStr';
 import './removeDuplicatesMedium';
+import './rotate';
+import './maxProfitMedium';
