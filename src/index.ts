@@ -10,3 +10,5 @@ import './strStr';
 import './removeDuplicatesMedium';
 import './rotate';
 import './maxProfitMedium';
+import './canJump';
+import './jump';
