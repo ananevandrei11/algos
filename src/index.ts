@@ -15,3 +15,4 @@ import './jump';
 import './reverseWords';
 import './hIndex';
 import './RandomizedSet';
+import './productExceptSelf';
