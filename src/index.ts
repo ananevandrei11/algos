@@ -16,3 +16,5 @@ import './reverseWords';
 import './hIndex';
 import './RandomizedSet';
 import './productExceptSelf';
+import './canCompleteCircuit';
+import './isPalindrome';
