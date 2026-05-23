@@ -18,3 +18,6 @@ import './RandomizedSet';
 import './productExceptSelf';
 import './canCompleteCircuit';
 import './isPalindrome';
+import './convertZigZag';
+import './isValidParentheses';
+import './wordPattern';
