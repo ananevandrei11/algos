@@ -22,3 +22,4 @@ import './convertZigZag';
 import './isValidParentheses';
 import './wordPattern';
 import './isAnagram';
+import './isIsomorphic';
