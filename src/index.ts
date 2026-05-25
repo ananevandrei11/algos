@@ -21,3 +21,4 @@ import './isPalindrome';
 import './convertZigZag';
 import './isValidParentheses';
 import './wordPattern';
+import './isAnagram';
