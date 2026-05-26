@@ -23,3 +23,4 @@ import './isValidParentheses';
 import './wordPattern';
 import './isAnagram';
 import './isIsomorphic';
+import './searchInsert';
