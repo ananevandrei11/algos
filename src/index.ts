@@ -26,3 +26,4 @@ import './isIsomorphic';
 import './searchInsert';
 import './containsNearbyDuplicate';
 import './isHappy';
+import './addBinary';
