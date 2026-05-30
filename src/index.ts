@@ -24,3 +24,5 @@ import './wordPattern';
 import './isAnagram';
 import './isIsomorphic';
 import './searchInsert';
+import './containsNearbyDuplicate';
+import './isHappy';
