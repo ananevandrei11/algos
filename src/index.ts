@@ -27,3 +27,5 @@ import './searchInsert';
 import './containsNearbyDuplicate';
 import './isHappy';
 import './addBinary';
+import './reverseBits';
+import './singleNumber';
