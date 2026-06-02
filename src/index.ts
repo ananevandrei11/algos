@@ -29,3 +29,4 @@ import './isHappy';
 import './addBinary';
 import './reverseBits';
 import './singleNumber';
+import './hammingWeight';

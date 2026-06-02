@@ -20,4 +20,3 @@ export function reverseBits(n: number): number {
   }
   return res;
 }
-reverseBits(43261596);
