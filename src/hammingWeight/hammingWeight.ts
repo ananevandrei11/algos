@@ -12,4 +12,3 @@ export function hammingWeight(n: number): number {
   }
   return count;
 }
-hammingWeight(11);

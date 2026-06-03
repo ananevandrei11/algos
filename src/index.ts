@@ -30,3 +30,4 @@ import './addBinary';
 import './reverseBits';
 import './singleNumber';
 import './hammingWeight';
+import './isPalindromeNumber';
