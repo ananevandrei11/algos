@@ -12,4 +12,3 @@ export function isPalindromeNumber(x: number): boolean {
   }
   return true;
 }
-isPalindromeNumber(121);
