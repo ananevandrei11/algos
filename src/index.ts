@@ -31,3 +31,4 @@ import './reverseBits';
 import './singleNumber';
 import './hammingWeight';
 import './isPalindromeNumber';
+import './summaryRanges';
