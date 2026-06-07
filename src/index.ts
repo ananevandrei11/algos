@@ -33,3 +33,4 @@ import './hammingWeight';
 import './isPalindromeNumber';
 import './summaryRanges';
 import './plusOne';
+import './mySqrt';
