@@ -36,3 +36,4 @@ import './plusOne';
 import './mySqrt';
 import './parseArgs';
 import './intToRomanMedium';
+import './twoSumMedium';
