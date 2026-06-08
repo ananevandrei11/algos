@@ -37,3 +37,4 @@ import './mySqrt';
 import './parseArgs';
 import './intToRomanMedium';
 import './twoSumMedium';
+import './maxArea';
