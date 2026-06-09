@@ -38,3 +38,4 @@ import './parseArgs';
 import './intToRomanMedium';
 import './twoSumMedium';
 import './maxArea';
+import './threeSum';
