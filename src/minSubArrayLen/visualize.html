@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>minSubArrayLen — скользящее окно</title>
+<style>
+  body { font-family: system-ui, sans-serif; background:#0f1117; color:#e6e6e6; margin:0; padding:24px; }
+  h1 { font-size:18px; font-weight:600; }
+  .sub { color:#8a8f98; font-size:14px; margin-bottom:20px; }
+  .array { display:flex; gap:6px; margin:24px 0; }
+  .cell {
+    width:56px; height:56px; border-radius:8px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; font-size:20px; font-weight:600;
+    background:#1c1f29; border:2px solid #2a2e3a; transition:all .2s; position:relative;
+  }
+  .cell .idx { position:absolute; top:-18px; font-size:11px; color:#5a5f6a; font-weight:400; }
+  .cell.in-window { background:#1e3a5f; border-color:#3b82f6; }
+  .cell.left-edge { border-color:#f59e0b; box-shadow:0 0 0 2px #f59e0b inset; }
+  .cell.right-edge { border-color:#10b981; box-shadow:0 0 0 2px #10b981 inset; }
+  .pointers { display:flex; gap:6px; margin-top:-14px; height:20px; }
+  .ptr { width:56px; text-align:center; font-size:12px; font-weight:600; }
+  .ptr.l { color:#f59e0b; }
+  .ptr.r { color:#10b981; }
+  .stats { display:flex; gap:28px; margin:24px 0; font-size:15px; }
+  .stat b { font-size:22px; display:block; margin-top:4px; }
+  .sum b { color:#3b82f6; }
+  .res b { color:#a78bfa; }
+  .target b { color:#f59e0b; }
+  .log { background:#161922; border-radius:8px; padding:14px 16px; font-size:14px; min-height:48px;
+         line-height:1.6; border-left:3px solid #3b82f6; }
+  .log .add { color:#10b981; }
+  .log .sub { color:#ef4444; }
+  .log .hit { color:#a78bfa; font-weight:600; }
+  button { background:#3b82f6; color:#fff; border:none; padding:10px 22px; border-radius:8px;
+           font-size:15px; font-weight:600; cursor:pointer; margin-right:10px; }
+  button:hover { background:#2563eb; }
+  button.ghost { background:#2a2e3a; }
+  .done { color:#10b981; font-weight:600; }
+</style>
+</head>
+<body>
+  <h1>minSubArrayLen(target=7, nums=[2,3,1,2,4,3])</h1>
+  <div class="sub">Зелёная рамка — <b style="color:#10b981">right</b> (конец окна). Жёлтая — <b style="color:#f59e0b">left</b> (начало окна). Синие — что лежит в окне прямо сейчас. Их сумма = sum.</div>
+
+  <div class="array" id="array"></div>
+  <div class="pointers" id="pointers"></div>
+
+  <div class="stats">
+    <div class="stat target">target<b>7</b></div>
+    <div class="stat sum">sum (сумма окна)<b id="sum">0</b></div>
+    <div class="stat res">res (мин. длина)<b id="res">∞</b></div>
+  </div>
+
+  <div class="log" id="log">Нажми «Шаг», чтобы начать.</div>
+
+  <div style="margin-top:20px;">
+    <button id="step">Шаг ▶</button>
+    <button id="auto" class="ghost">Авто ⏩</button>
+    <button id="reset" class="ghost">Сброс ↺</button>
+  </div>
+
+<script>
+const target = 7;
+const nums = [2,3,1,2,4,3];
+
+// заранее прогоняем алгоритм и записываем каждый "кадр"
+function buildFrames() {
+  const frames = [];
+  let res = Infinity, sum = 0, left = 0;
+  const push = (right, phase, note) =>
+    frames.push({ left, right, sum, res, phase, note });
+
+  for (let right = 0; right < nums.length; right++) {
+    sum += nums[right];
+    push(right, 'expand',
+      `<span class="add">right→${right}: прибавили nums[${right}]=${nums[right]} → sum=${sum}</span>` +
+      (sum >= target ? '' : `. sum=${sum} < target=${target}, окно растёт дальше.`));
+
+    while (sum >= target) {
+      const len = right - left + 1;
+      const better = len < res;
+      res = Math.min(res, len);
+      push(right, 'hit',
+        `<span class="hit">sum=${sum} ≥ ${target}! Окно [${left}..${right}] длиной ${len}. ` +
+        (better ? `Новый минимум res=${res}.` : `Не короче (res=${res}).`) + `</span>`);
+
+      const removed = nums[left];
+      sum -= removed;
+      left++;
+      push(right, 'shrink',
+        `<span class="sub" style="color:#ef4444">left→${left}: отрезали слева nums[${left-1}]=${removed} → sum=${sum}.</span> ` +
+        (sum >= target ? `Ещё ≥ ${target}, пробуем сжать сильнее.` : `Теперь sum=${sum} < ${target}, окно подходить перестало — двигаем right.`));
+    }
+  }
+  push(nums.length-1, 'done',
+    `<span class="done">Готово. Ответ res = ${res === Infinity ? 0 : res}.</span>`);
+  return frames;
+}
+
+let frames = buildFrames();
+let i = -1;
+let timer = null;
+
+function render() {
+  const f = frames[i] || { left:0, right:-1, sum:0, res:Infinity, note:'Нажми «Шаг».' };
+  const arr = document.getElementById('array');
+  const ptr = document.getElementById('pointers');
+  arr.innerHTML = '';
+  ptr.innerHTML = '';
+  nums.forEach((v, k) => {
+    const inWin = k >= f.left && k <= f.right;
+    const cls = ['cell'];
+    if (inWin) cls.push('in-window');
+    if (k === f.left && f.right >= f.left) cls.push('left-edge');
+    if (k === f.right) cls.push('right-edge');
+    arr.innerHTML += `<div class="${cls.join(' ')}"><span class="idx">${k}</span>${v}</div>`;
+    let p = '';
+    if (k === f.left && f.right >= f.left) p += 'L';
+    if (k === f.right) p += (p ? '/' : '') + 'R';
+    ptr.innerHTML += `<div class="ptr ${k===f.left?'l':''} ${k===f.right?'r':''}">${p?'▲'+p:''}</div>`;
+  });
+  document.getElementById('sum').textContent = f.sum;
+  document.getElementById('res').textContent = f.res === Infinity ? '∞' : f.res;
+  document.getElementById('log').innerHTML = f.note;
+}
+
+document.getElementById('step').onclick = () => {
+  if (i < frames.length - 1) i++;
+  render();
+};
+document.getElementById('reset').onclick = () => {
+  i = -1; clearInterval(timer); timer = null; render();
+};
+document.getElementById('auto').onclick = () => {
+  if (timer) { clearInterval(timer); timer = null; return; }
+  timer = setInterval(() => {
+    if (i < frames.length - 1) { i++; render(); }
+    else { clearInterval(timer); timer = null; }
+  }, 900);
+};
+render();
+</script>
+</body>
+</html>
