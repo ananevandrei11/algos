@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>groupAnagrams — ключ из отсортированных букв</title>
+<style>
+  body { font-family: system-ui, sans-serif; background:#0f1117; color:#e6e6e6; margin:0; padding:24px; }
+  h1 { font-size:18px; font-weight:600; }
+  .sub { color:#8a8f98; font-size:14px; margin-bottom:20px; }
+  .array { display:flex; gap:6px; margin:24px 0; flex-wrap:wrap; }
+  .cell {
+    min-width:56px; height:56px; padding:0 10px; border-radius:8px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; font-size:18px; font-weight:600;
+    background:#1c1f29; border:2px solid #2a2e3a; transition:all .2s; position:relative;
+  }
+  .cell .idx { position:absolute; top:-18px; font-size:11px; color:#5a5f6a; font-weight:400; }
+  .cell.current { border-color:#10b981; box-shadow:0 0 0 2px #10b981 inset; }
+  .cell.done { background:#1e3a5f; border-color:#3b82f6; opacity:.55; }
+
+  .key { display:flex; gap:6px; align-items:center; margin:24px 0; font-size:15px; min-height:40px; }
+  .key .label { color:#8a8f98; }
+  .key .pill { background:#161922; border:2px solid #2a2e3a; border-radius:8px; padding:6px 12px; font-weight:600; }
+  .key .pill.src { color:#10b981; border-color:#10b981; }
+  .key .arrow { color:#5a5f6a; }
+  .key .pill.dst { color:#f59e0b; border-color:#f59e0b; }
+
+  .map { margin:24px 0; }
+  .map .title { color:#8a8f98; font-size:14px; margin-bottom:10px; }
+  .bucket { display:flex; align-items:center; gap:10px; margin-bottom:8px; transition:all .2s; }
+  .bucket.touched .bkey { color:#f59e0b; border-color:#f59e0b; }
+  .bkey { background:#161922; border:2px solid #2a2e3a; border-radius:8px; padding:6px 12px;
+          font-weight:600; min-width:70px; text-align:center; color:#a78bfa; }
+  .bvals { display:flex; gap:6px; flex-wrap:wrap; }
+  .bval { background:#1e3a5f; border:2px solid #3b82f6; border-radius:8px; padding:6px 12px; font-weight:600; }
+  .bval.fresh { border-color:#10b981; background:#1c3a2f; }
+
+  .stats { display:flex; gap:28px; margin:24px 0; font-size:15px; }
+  .stat b { font-size:22px; display:block; margin-top:4px; }
+  .groups b { color:#a78bfa; }
+  .idx-stat b { color:#10b981; }
+
+  .log { background:#161922; border-radius:8px; padding:14px 16px; font-size:14px; min-height:48px;
+         line-height:1.6; border-left:3px solid #3b82f6; }
+  .log .add { color:#10b981; }
+  .log .key { color:#f59e0b; font-weight:600; }
+  .log .hit { color:#a78bfa; font-weight:600; }
+  button { background:#3b82f6; color:#fff; border:none; padding:10px 22px; border-radius:8px;
+           font-size:15px; font-weight:600; cursor:pointer; margin-right:10px; }
+  button:hover { background:#2563eb; }
+  button.ghost { background:#2a2e3a; }
+  .done-msg { color:#10b981; font-weight:600; }
+</style>
+</head>
+<body>
+  <h1>groupAnagrams(["eat","tea","tan","ate","nat","bat"])</h1>
+  <div class="sub">Идея: у анаграмм одинаковый набор букв. Сортируем буквы строки → получаем <b style="color:#f59e0b">ключ</b>. Все строки с одним ключом ложатся в одну группу <b style="color:#a78bfa">Map</b>.</div>
+
+  <div class="array" id="array"></div>
+
+  <div class="key" id="key"></div>
+
+  <div class="map">
+    <div class="title">Map&lt;ключ, группа&gt;</div>
+    <div id="buckets"></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat idx-stat">обрабатываем<b id="cur">—</b></div>
+    <div class="stat groups">групп в Map<b id="groups">0</b></div>
+  </div>
+
+  <div class="log" id="log">Нажми «Шаг», чтобы начать.</div>
+
+  <div style="margin-top:20px;">
+    <button id="step">Шаг ▶</button>
+    <button id="auto" class="ghost">Авто ⏩</button>
+    <button id="reset" class="ghost">Сброс ↺</button>
+  </div>
+
+<script>
+const strs = ["eat","tea","tan","ate","nat","bat"];
+const sortKey = s => [...s].sort().join('');
+
+// заранее прогоняем алгоритм и записываем каждый "кадр"
+function buildFrames() {
+  const frames = [];
+  const map = new Map();          // ключ -> массив строк
+  const order = [];               // порядок ключей, чтобы стабильно рисовать
+
+  // снимок текущего состояния Map для кадра
+  const snapshot = () => order.map(k => ({ key: k, vals: [...map.get(k)] }));
+
+  const push = (data) => frames.push(data);
+
+  for (let i = 0; i < strs.length; i++) {
+    const str = strs[i];
+
+    // кадр 1: считаем ключ
+    const key = sortKey(str);
+    push({
+      cur: i, src: str, key, dstKey: null, touched: null, fresh: null,
+      buckets: snapshot(), groups: map.size,
+      note: `<b>i=${i}:</b> берём <span class="add">"${str}"</span>, сортируем буквы → ключ <span class="key">"${key}"</span>.`
+    });
+
+    // кадр 2: кладём в Map
+    const isNew = !map.has(key);
+    if (isNew) { map.set(key, []); order.push(key); }
+    map.get(key).push(str);
+
+    push({
+      cur: i, src: str, key, dstKey: key, touched: key, fresh: str,
+      buckets: snapshot(), groups: map.size,
+      note: isNew
+        ? `<span class="key">"${key}"</span> ещё не встречался → новая группа. Кладём в неё <span class="hit">"${str}"</span>.`
+        : `<span class="key">"${key}"</span> уже есть → дописываем <span class="hit">"${str}"</span> в существующую группу.`
+    });
+  }
+
+  push({
+    cur: null, src: null, key: null, dstKey: null, touched: null, fresh: null,
+    buckets: snapshot(), groups: map.size,
+    note: `<span class="done-msg">Готово. Возвращаем [...map.values()] — ${map.size} групп${map.size===1?'а':map.size<5?'ы':''}.</span>`
+  });
+  return frames;
+}
+
+let frames = buildFrames();
+let i = -1;
+let timer = null;
+
+function render() {
+  const f = frames[i] || { cur:null, src:null, key:null, dstKey:null, touched:null, fresh:null, buckets:[], groups:0, note:'Нажми «Шаг».' };
+
+  // массив строк
+  const arr = document.getElementById('array');
+  arr.innerHTML = '';
+  strs.forEach((v, k) => {
+    const cls = ['cell'];
+    if (f.cur !== null && k < f.cur) cls.push('done');
+    if (k === f.cur) cls.push('current');
+    arr.innerHTML += `<div class="${cls.join(' ')}"><span class="idx">${k}</span>${v}</div>`;
+  });
+
+  // строка про ключ
+  const keyEl = document.getElementById('key');
+  if (f.src !== null) {
+    keyEl.innerHTML =
+      `<span class="label">ключ:</span>` +
+      `<span class="pill src">"${f.src}"</span>` +
+      `<span class="arrow">→ sort →</span>` +
+      `<span class="pill dst">"${f.key}"</span>`;
+  } else {
+    keyEl.innerHTML = '';
+  }
+
+  // Map
+  const b = document.getElementById('buckets');
+  b.innerHTML = '';
+  if (f.buckets.length === 0) {
+    b.innerHTML = '<div class="sub" style="color:#5a5f6a">пусто</div>';
+  }
+  f.buckets.forEach(bk => {
+    const touched = bk.key === f.touched;
+    const vals = bk.vals.map(v => {
+      const fresh = touched && v === f.fresh ? ' fresh' : '';
+      return `<div class="bval${fresh}">${v}</div>`;
+    }).join('');
+    b.innerHTML += `<div class="bucket${touched?' touched':''}">` +
+      `<div class="bkey">"${bk.key}"</div><div class="bvals">${vals}</div></div>`;
+  });
+
+  document.getElementById('cur').textContent = f.cur === null ? '—' : `"${f.src}"`;
+  document.getElementById('groups').textContent = f.groups;
+  document.getElementById('log').innerHTML = f.note;
+}
+
+document.getElementById('step').onclick = () => {
+  if (i < frames.length - 1) i++;
+  render();
+};
+document.getElementById('reset').onclick = () => {
+  i = -1; clearInterval(timer); timer = null; render();
+};
+document.getElementById('auto').onclick = () => {
+  if (timer) { clearInterval(timer); timer = null; return; }
+  timer = setInterval(() => {
+    if (i < frames.length - 1) { i++; render(); }
+    else { clearInterval(timer); timer = null; }
+  }, 900);
+};
+render();
+</script>
+</body>
+</html>

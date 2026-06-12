@@ -40,3 +40,4 @@ import './twoSumMedium';
 import './maxArea';
 import './threeSum';
 import './minSubArrayLen';
+import './groupAnagrams';
