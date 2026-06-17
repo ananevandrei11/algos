@@ -45,3 +45,4 @@ import './lengthOfLongestSubstring';
 import './longestConsecutive';
 import './spiralOrder';
 import './mergeIntervals';
+import './insertIntervals';
