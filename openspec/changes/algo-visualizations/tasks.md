@@ -20,7 +20,7 @@
 - [x] 2.11 `containsNearbyDuplicate`
 - [x] 2.12 `productExceptSelf`
 - [x] 2.13 `mergeArray`
-- [ ] 2.14 `canJump`
+- [x] 2.14 `canJump`
 - [ ] 2.15 `jump`
 - [ ] 2.16 `maxProfit`
 - [ ] 2.17 `maxProfitMedium`

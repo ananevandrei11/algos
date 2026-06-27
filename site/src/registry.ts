@@ -27,6 +27,8 @@ import { ProductExceptSelfViz } from "./algorithms/productExceptSelf";
 import productExceptSelfSource from "@algos/productExceptSelf/productExceptSelf.ts?raw";
 import { MergeArrayViz } from "./algorithms/mergeArray";
 import mergeArraySource from "@algos/mergeArray/mergeArray.ts?raw";
+import { CanJumpViz } from "./algorithms/canJump";
+import canJumpSource from "@algos/canJump/canJump.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -136,6 +138,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "in-place", "O(m+n)"],
     Visualization: MergeArrayViz,
     source: mergeArraySource,
+  },
+  {
+    slug: "canJump",
+    title: "Jump Game",
+    tags: ["array", "greedy", "O(n)"],
+    Visualization: CanJumpViz,
+    source: canJumpSource,
   },
 ];
 
