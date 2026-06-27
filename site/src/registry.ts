@@ -5,6 +5,8 @@ import { RemoveElementViz } from "./algorithms/removeElement";
 import removeElementSource from "@algos/removeElement/removeElement.ts?raw";
 import { RemoveDuplicatesViz } from "./algorithms/removeDuplicates";
 import removeDuplicatesSource from "@algos/removeDuplicates/removeDuplicates.ts?raw";
+import { RemoveDuplicatesMediumViz } from "./algorithms/removeDuplicatesMedium";
+import removeDuplicatesMediumSource from "@algos/removeDuplicatesMedium/removeDuplicatesMedium.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -37,6 +39,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "in-place", "O(n)"],
     Visualization: RemoveDuplicatesViz,
     source: removeDuplicatesSource,
+  },
+  {
+    slug: "removeDuplicatesMedium",
+    title: "Remove Duplicates from Sorted Array II",
+    tags: ["array", "two-pointers", "in-place", "O(n)"],
+    Visualization: RemoveDuplicatesMediumViz,
+    source: removeDuplicatesMediumSource,
   },
 ];
 
