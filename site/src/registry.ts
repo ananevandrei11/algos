@@ -19,6 +19,8 @@ import { ReverseWordsViz } from "./algorithms/reverseWords";
 import reverseWordsSource from "@algos/reverseWords/reverseWords.ts?raw";
 import { SearchInsertViz } from "./algorithms/searchInsert";
 import searchInsertSource from "@algos/searchInsert/searchInsert.ts?raw";
+import { LengthOfLongestSubstringViz } from "./algorithms/lengthOfLongestSubstring";
+import lengthOfLongestSubstringSource from "@algos/lengthOfLongestSubstring/lengthOfLongestSubstring.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -100,6 +102,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "binary-search", "O(log n)"],
     Visualization: SearchInsertViz,
     source: searchInsertSource,
+  },
+  {
+    slug: "lengthOfLongestSubstring",
+    title: "Longest Substring Without Repeating Characters",
+    tags: ["string", "sliding-window", "hash-map", "O(n)"],
+    Visualization: LengthOfLongestSubstringViz,
+    source: lengthOfLongestSubstringSource,
   },
 ];
 

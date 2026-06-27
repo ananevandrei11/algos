@@ -16,7 +16,7 @@
 - [x] 2.7 `isPalindrome`
 - [x] 2.8 `reverseWords`
 - [x] 2.9 `searchInsert`
-- [ ] 2.10 `lengthOfLongestSubstring`
+- [x] 2.10 `lengthOfLongestSubstring`
 - [ ] 2.11 `containsNearbyDuplicate`
 - [ ] 2.12 `productExceptSelf`
 - [ ] 2.13 `mergeArray`
