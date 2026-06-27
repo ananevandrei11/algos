@@ -35,6 +35,8 @@ import { MaxProfitViz } from "./algorithms/maxProfit";
 import maxProfitSource from "@algos/maxProfit/maxProfit.ts?raw";
 import { MaxProfitMediumViz } from "./algorithms/maxProfitMedium";
 import maxProfitMediumSource from "@algos/maxProfitMedium/maxProfitMedium.ts?raw";
+import { MajorityElementViz } from "./algorithms/majorityElement";
+import majorityElementSource from "@algos/majorityElement/majorityElement.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -172,6 +174,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "greedy", "O(n)"],
     Visualization: MaxProfitMediumViz,
     source: maxProfitMediumSource,
+  },
+  {
+    slug: "majorityElement",
+    title: "Majority Element",
+    tags: ["array", "boyer-moore", "O(n)"],
+    Visualization: MajorityElementViz,
+    source: majorityElementSource,
   },
 ];
 
