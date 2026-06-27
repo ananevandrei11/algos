@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import { MinSubArrayLenViz } from "./algorithms/minSubArrayLen";
+import minSubArrayLenSource from "@algos/minSubArrayLen/minSubArrayLen.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -8,6 +9,7 @@ export interface AlgoEntry {
   title: string;
   tags: string[];
   Visualization: ComponentType;
+  source: string; // raw text of src/<name>/<name>.ts (Vite ?raw import)
 }
 
 export const algorithms: AlgoEntry[] = [
@@ -16,6 +18,7 @@ export const algorithms: AlgoEntry[] = [
     title: "Minimum Size Subarray Sum",
     tags: ["array", "sliding-window", "O(n)"],
     Visualization: MinSubArrayLenViz,
+    source: minSubArrayLenSource,
   },
 ];
 

@@ -232,6 +232,22 @@ button:disabled {
   cursor: default;
 }
 
+/* Source-code block (raw src/ file under each visualization) */
+.source {
+  margin-top: 28px;
+  background: #161922;
+  border: 1px solid #2a2e3a;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #c8ccd4;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
 .verify {
   margin-top: 14px;
   font-size: 13px;

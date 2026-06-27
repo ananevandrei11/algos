@@ -23,6 +23,7 @@ export function AlgoPage() {
         <Link to="/">← Catalog</Link>
       </p>
       <Visualization />
+      <pre className="source">{algo.source}</pre>
     </>
   );
 }
