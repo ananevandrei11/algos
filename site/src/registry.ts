@@ -3,6 +3,8 @@ import { MinSubArrayLenViz } from "./algorithms/minSubArrayLen";
 import minSubArrayLenSource from "@algos/minSubArrayLen/minSubArrayLen.ts?raw";
 import { RemoveElementViz } from "./algorithms/removeElement";
 import removeElementSource from "@algos/removeElement/removeElement.ts?raw";
+import { RemoveDuplicatesViz } from "./algorithms/removeDuplicates";
+import removeDuplicatesSource from "@algos/removeDuplicates/removeDuplicates.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -28,6 +30,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "in-place", "O(n)"],
     Visualization: RemoveElementViz,
     source: removeElementSource,
+  },
+  {
+    slug: "removeDuplicates",
+    title: "Remove Duplicates from Sorted Array",
+    tags: ["array", "two-pointers", "in-place", "O(n)"],
+    Visualization: RemoveDuplicatesViz,
+    source: removeDuplicatesSource,
   },
 ];
 

@@ -8,7 +8,7 @@
 ## 2. Array row + pointers/index
 
 - [x] 2.1 `removeElement`
-- [ ] 2.2 `removeDuplicates`
+- [x] 2.2 `removeDuplicates`
 - [ ] 2.3 `removeDuplicatesMedium`
 - [ ] 2.4 `twoSumMedium` (trace the naive nested loop from `src/`, not two-pointer)
 - [ ] 2.5 `threeSum`
