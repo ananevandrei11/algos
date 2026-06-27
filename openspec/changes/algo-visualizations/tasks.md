@@ -15,7 +15,7 @@
 - [x] 2.6 `maxArea`
 - [x] 2.7 `isPalindrome`
 - [x] 2.8 `reverseWords`
-- [ ] 2.9 `searchInsert`
+- [x] 2.9 `searchInsert`
 - [ ] 2.10 `lengthOfLongestSubstring`
 - [ ] 2.11 `containsNearbyDuplicate`
 - [ ] 2.12 `productExceptSelf`

@@ -17,6 +17,8 @@ import { IsPalindromeViz } from "./algorithms/isPalindrome";
 import isPalindromeSource from "@algos/isPalindrome/isPalindrome.ts?raw";
 import { ReverseWordsViz } from "./algorithms/reverseWords";
 import reverseWordsSource from "@algos/reverseWords/reverseWords.ts?raw";
+import { SearchInsertViz } from "./algorithms/searchInsert";
+import searchInsertSource from "@algos/searchInsert/searchInsert.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -91,6 +93,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["string", "two-phase", "O(n)"],
     Visualization: ReverseWordsViz,
     source: reverseWordsSource,
+  },
+  {
+    slug: "searchInsert",
+    title: "Search Insert Position",
+    tags: ["array", "binary-search", "O(log n)"],
+    Visualization: SearchInsertViz,
+    source: searchInsertSource,
   },
 ];
 
