@@ -1,6 +1,8 @@
 import type { ComponentType } from "react";
 import { MinSubArrayLenViz } from "./algorithms/minSubArrayLen";
 import minSubArrayLenSource from "@algos/minSubArrayLen/minSubArrayLen.ts?raw";
+import { RemoveElementViz } from "./algorithms/removeElement";
+import removeElementSource from "@algos/removeElement/removeElement.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -19,6 +21,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "sliding-window", "O(n)"],
     Visualization: MinSubArrayLenViz,
     source: minSubArrayLenSource,
+  },
+  {
+    slug: "removeElement",
+    title: "Remove Element",
+    tags: ["array", "two-pointers", "in-place", "O(n)"],
+    Visualization: RemoveElementViz,
+    source: removeElementSource,
   },
 ];
 
