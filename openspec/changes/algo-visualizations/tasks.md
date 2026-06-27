@@ -17,7 +17,7 @@
 - [x] 2.8 `reverseWords`
 - [x] 2.9 `searchInsert`
 - [x] 2.10 `lengthOfLongestSubstring`
-- [ ] 2.11 `containsNearbyDuplicate`
+- [x] 2.11 `containsNearbyDuplicate`
 - [ ] 2.12 `productExceptSelf`
 - [ ] 2.13 `mergeArray`
 - [ ] 2.14 `canJump`

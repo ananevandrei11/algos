@@ -21,6 +21,8 @@ import { SearchInsertViz } from "./algorithms/searchInsert";
 import searchInsertSource from "@algos/searchInsert/searchInsert.ts?raw";
 import { LengthOfLongestSubstringViz } from "./algorithms/lengthOfLongestSubstring";
 import lengthOfLongestSubstringSource from "@algos/lengthOfLongestSubstring/lengthOfLongestSubstring.ts?raw";
+import { ContainsNearbyDuplicateViz } from "./algorithms/containsNearbyDuplicate";
+import containsNearbyDuplicateSource from "@algos/containsNearbyDuplicate/containsNearbyDuplicate.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -109,6 +111,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["string", "sliding-window", "hash-map", "O(n)"],
     Visualization: LengthOfLongestSubstringViz,
     source: lengthOfLongestSubstringSource,
+  },
+  {
+    slug: "containsNearbyDuplicate",
+    title: "Contains Duplicate II",
+    tags: ["array", "hash-map", "sliding-window", "O(n)"],
+    Visualization: ContainsNearbyDuplicateViz,
+    source: containsNearbyDuplicateSource,
   },
 ];
 
