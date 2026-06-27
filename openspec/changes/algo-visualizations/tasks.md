@@ -18,7 +18,7 @@
 - [x] 2.9 `searchInsert`
 - [x] 2.10 `lengthOfLongestSubstring`
 - [x] 2.11 `containsNearbyDuplicate`
-- [ ] 2.12 `productExceptSelf`
+- [x] 2.12 `productExceptSelf`
 - [ ] 2.13 `mergeArray`
 - [ ] 2.14 `canJump`
 - [ ] 2.15 `jump`

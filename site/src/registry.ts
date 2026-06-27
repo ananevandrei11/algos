@@ -23,6 +23,8 @@ import { LengthOfLongestSubstringViz } from "./algorithms/lengthOfLongestSubstri
 import lengthOfLongestSubstringSource from "@algos/lengthOfLongestSubstring/lengthOfLongestSubstring.ts?raw";
 import { ContainsNearbyDuplicateViz } from "./algorithms/containsNearbyDuplicate";
 import containsNearbyDuplicateSource from "@algos/containsNearbyDuplicate/containsNearbyDuplicate.ts?raw";
+import { ProductExceptSelfViz } from "./algorithms/productExceptSelf";
+import productExceptSelfSource from "@algos/productExceptSelf/productExceptSelf.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -118,6 +120,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "hash-map", "sliding-window", "O(n)"],
     Visualization: ContainsNearbyDuplicateViz,
     source: containsNearbyDuplicateSource,
+  },
+  {
+    slug: "productExceptSelf",
+    title: "Product of Array Except Self",
+    tags: ["array", "prefix-product", "O(n)"],
+    Visualization: ProductExceptSelfViz,
+    source: productExceptSelfSource,
   },
 ];
 
