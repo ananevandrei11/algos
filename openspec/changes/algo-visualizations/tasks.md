@@ -21,7 +21,7 @@
 - [x] 2.12 `productExceptSelf`
 - [x] 2.13 `mergeArray`
 - [x] 2.14 `canJump`
-- [ ] 2.15 `jump`
+- [x] 2.15 `jump`
 - [ ] 2.16 `maxProfit`
 - [ ] 2.17 `maxProfitMedium`
 - [ ] 2.18 `majorityElement`

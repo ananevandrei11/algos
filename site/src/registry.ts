@@ -29,6 +29,8 @@ import { MergeArrayViz } from "./algorithms/mergeArray";
 import mergeArraySource from "@algos/mergeArray/mergeArray.ts?raw";
 import { CanJumpViz } from "./algorithms/canJump";
 import canJumpSource from "@algos/canJump/canJump.ts?raw";
+import { JumpViz } from "./algorithms/jump";
+import jumpSource from "@algos/jump/jump.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -145,6 +147,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "greedy", "O(n)"],
     Visualization: CanJumpViz,
     source: canJumpSource,
+  },
+  {
+    slug: "jump",
+    title: "Jump Game II",
+    tags: ["array", "greedy", "O(n)"],
+    Visualization: JumpViz,
+    source: jumpSource,
   },
 ];
 
