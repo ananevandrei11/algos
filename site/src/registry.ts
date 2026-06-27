@@ -13,6 +13,8 @@ import { ThreeSumViz } from "./algorithms/threeSum";
 import threeSumSource from "@algos/threeSum/threeSum.ts?raw";
 import { MaxAreaViz } from "./algorithms/maxArea";
 import maxAreaSource from "@algos/maxArea/maxArea.ts?raw";
+import { IsPalindromeViz } from "./algorithms/isPalindrome";
+import isPalindromeSource from "@algos/isPalindrome/isPalindrome.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -73,6 +75,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "O(n)"],
     Visualization: MaxAreaViz,
     source: maxAreaSource,
+  },
+  {
+    slug: "isPalindrome",
+    title: "Valid Palindrome",
+    tags: ["string", "two-pointers", "O(n)"],
+    Visualization: IsPalindromeViz,
+    source: isPalindromeSource,
   },
 ];
 
