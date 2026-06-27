@@ -10,7 +10,7 @@
 - [x] 2.1 `removeElement`
 - [x] 2.2 `removeDuplicates`
 - [x] 2.3 `removeDuplicatesMedium`
-- [ ] 2.4 `twoSumMedium` (trace the naive nested loop from `src/`, not two-pointer)
+- [x] 2.4 `twoSumMedium` (trace the naive nested loop from `src/`, not two-pointer)
 - [ ] 2.5 `threeSum`
 - [ ] 2.6 `maxArea`
 - [ ] 2.7 `isPalindrome`

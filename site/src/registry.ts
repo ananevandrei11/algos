@@ -7,6 +7,8 @@ import { RemoveDuplicatesViz } from "./algorithms/removeDuplicates";
 import removeDuplicatesSource from "@algos/removeDuplicates/removeDuplicates.ts?raw";
 import { RemoveDuplicatesMediumViz } from "./algorithms/removeDuplicatesMedium";
 import removeDuplicatesMediumSource from "@algos/removeDuplicatesMedium/removeDuplicatesMedium.ts?raw";
+import { TwoSumMediumViz } from "./algorithms/twoSumMedium";
+import twoSumMediumSource from "@algos/twoSumMedium/twoSumMedium.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -46,6 +48,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "in-place", "O(n)"],
     Visualization: RemoveDuplicatesMediumViz,
     source: removeDuplicatesMediumSource,
+  },
+  {
+    slug: "twoSumMedium",
+    title: "Two Sum II – Input Array Is Sorted",
+    tags: ["array", "two-pointers", "O(n²)"],
+    Visualization: TwoSumMediumViz,
+    source: twoSumMediumSource,
   },
 ];
 
