@@ -12,7 +12,7 @@
 - [x] 2.3 `removeDuplicatesMedium`
 - [x] 2.4 `twoSumMedium` (trace the naive nested loop from `src/`, not two-pointer)
 - [x] 2.5 `threeSum`
-- [ ] 2.6 `maxArea`
+- [x] 2.6 `maxArea`
 - [ ] 2.7 `isPalindrome`
 - [ ] 2.8 `reverseWords`
 - [ ] 2.9 `searchInsert`

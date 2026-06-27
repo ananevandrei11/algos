@@ -11,6 +11,8 @@ import { TwoSumMediumViz } from "./algorithms/twoSumMedium";
 import twoSumMediumSource from "@algos/twoSumMedium/twoSumMedium.ts?raw";
 import { ThreeSumViz } from "./algorithms/threeSum";
 import threeSumSource from "@algos/threeSum/threeSum.ts?raw";
+import { MaxAreaViz } from "./algorithms/maxArea";
+import maxAreaSource from "@algos/maxArea/maxArea.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -64,6 +66,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "sorting", "O(n²)"],
     Visualization: ThreeSumViz,
     source: threeSumSource,
+  },
+  {
+    slug: "maxArea",
+    title: "Container With Most Water",
+    tags: ["array", "two-pointers", "O(n)"],
+    Visualization: MaxAreaViz,
+    source: maxAreaSource,
   },
 ];
 
