@@ -19,7 +19,7 @@
 - [x] 2.10 `lengthOfLongestSubstring`
 - [x] 2.11 `containsNearbyDuplicate`
 - [x] 2.12 `productExceptSelf`
-- [ ] 2.13 `mergeArray`
+- [x] 2.13 `mergeArray`
 - [ ] 2.14 `canJump`
 - [ ] 2.15 `jump`
 - [ ] 2.16 `maxProfit`

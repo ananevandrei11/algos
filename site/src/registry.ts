@@ -25,6 +25,8 @@ import { ContainsNearbyDuplicateViz } from "./algorithms/containsNearbyDuplicate
 import containsNearbyDuplicateSource from "@algos/containsNearbyDuplicate/containsNearbyDuplicate.ts?raw";
 import { ProductExceptSelfViz } from "./algorithms/productExceptSelf";
 import productExceptSelfSource from "@algos/productExceptSelf/productExceptSelf.ts?raw";
+import { MergeArrayViz } from "./algorithms/mergeArray";
+import mergeArraySource from "@algos/mergeArray/mergeArray.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -127,6 +129,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "prefix-product", "O(n)"],
     Visualization: ProductExceptSelfViz,
     source: productExceptSelfSource,
+  },
+  {
+    slug: "mergeArray",
+    title: "Merge Sorted Array",
+    tags: ["array", "two-pointers", "in-place", "O(m+n)"],
+    Visualization: MergeArrayViz,
+    source: mergeArraySource,
   },
 ];
 
