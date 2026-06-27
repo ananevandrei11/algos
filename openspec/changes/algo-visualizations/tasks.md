@@ -23,7 +23,7 @@
 - [x] 2.14 `canJump`
 - [x] 2.15 `jump`
 - [x] 2.16 `maxProfit`
-- [ ] 2.17 `maxProfitMedium`
+- [x] 2.17 `maxProfitMedium`
 - [ ] 2.18 `majorityElement`
 - [ ] 2.19 `hIndex`
 - [ ] 2.20 `canCompleteCircuit`

@@ -33,6 +33,8 @@ import { JumpViz } from "./algorithms/jump";
 import jumpSource from "@algos/jump/jump.ts?raw";
 import { MaxProfitViz } from "./algorithms/maxProfit";
 import maxProfitSource from "@algos/maxProfit/maxProfit.ts?raw";
+import { MaxProfitMediumViz } from "./algorithms/maxProfitMedium";
+import maxProfitMediumSource from "@algos/maxProfitMedium/maxProfitMedium.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -163,6 +165,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "greedy", "O(n)"],
     Visualization: MaxProfitViz,
     source: maxProfitSource,
+  },
+  {
+    slug: "maxProfitMedium",
+    title: "Best Time to Buy and Sell Stock II",
+    tags: ["array", "greedy", "O(n)"],
+    Visualization: MaxProfitMediumViz,
+    source: maxProfitMediumSource,
   },
 ];
 
