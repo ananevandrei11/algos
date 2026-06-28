@@ -25,7 +25,7 @@
 - [x] 2.16 `maxProfit`
 - [x] 2.17 `maxProfitMedium`
 - [x] 2.18 `majorityElement`
-- [ ] 2.19 `hIndex`
+- [x] 2.19 `hIndex`
 - [ ] 2.20 `canCompleteCircuit`
 
 ## 3. Hash table (key → value)
