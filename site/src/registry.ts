@@ -39,6 +39,8 @@ import { MajorityElementViz } from "./algorithms/majorityElement";
 import majorityElementSource from "@algos/majorityElement/majorityElement.ts?raw";
 import { HIndexViz } from "./algorithms/hIndex";
 import hIndexSource from "@algos/hIndex/hIndex.ts?raw";
+import { CanCompleteCircuitViz } from "./algorithms/canCompleteCircuit";
+import canCompleteCircuitSource from "@algos/canCompleteCircuit/canCompleteCircuit.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -190,6 +192,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "sorting", "O(n log n)"],
     Visualization: HIndexViz,
     source: hIndexSource,
+  },
+  {
+    slug: "canCompleteCircuit",
+    title: "Gas Station",
+    tags: ["array", "greedy", "O(n²)"],
+    Visualization: CanCompleteCircuitViz,
+    source: canCompleteCircuitSource,
   },
 ];
 
