@@ -59,6 +59,8 @@ import { InsertIntervalsViz } from "./algorithms/insertIntervals";
 import insertIntervalsSource from "@algos/insertIntervals/insertIntervals.ts?raw";
 import { SummaryRangesViz } from "./algorithms/summaryRanges";
 import summaryRangesSource from "@algos/summaryRanges/summaryRanges.ts?raw";
+import { SpiralOrderViz } from "./algorithms/spiralOrder";
+import spiralOrderSource from "@algos/spiralOrder/spiralOrder.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -280,6 +282,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["intervals", "hash-map", "O(n)"],
     Visualization: SummaryRangesViz,
     source: summaryRangesSource,
+  },
+  {
+    slug: "spiralOrder",
+    title: "Spiral Order",
+    tags: ["matrix", "simulation", "O(m*n)"],
+    Visualization: SpiralOrderViz,
+    source: spiralOrderSource,
   },
 ];
 
