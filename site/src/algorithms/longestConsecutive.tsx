@@ -178,8 +178,8 @@ function LongestConsecutiveView({ nums, state }: { nums: number[]; state: State 
 const NUMS = [100, 4, 200, 1, 3, 2];
 
 export function LongestConsecutiveViz() {
-  const { states, answer } = useMemo(() => buildStates(NUMS), []);
-  const expected = useMemo(() => longestConsecutive(NUMS), []);
+  const { states, answer } = useMemo(() => buildStates([...NUMS]), []);
+  const expected = useMemo(() => longestConsecutive([...NUMS]), []);
   const ok = answer === expected;
 
   return (
