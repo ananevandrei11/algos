@@ -52,8 +52,8 @@ function buildStates(intervals: number[][]): { states: State[]; answer: number[]
       continue;
     }
     const start = sorted[i][0];
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const startRes = res[count][0]; // computed in src but not used in condition — kept for fidelity
+    // src/ also declares `const startRes = res[count][0]` here, but never uses it
+    // in the condition — omitted to satisfy TypeScript's noUnusedLocals.
     const endRes = res[count][1];
     if (start <= endRes) {
       res[count][1] = Math.max(endRes, sorted[i][1]);

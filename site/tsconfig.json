@@ -13,6 +13,7 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "paths": {
+      "@algos/mergeIntervals/mergeIntervals": ["./src/overrides/algos-mergeIntervals.d.ts"],
       "@algos/*": ["../src/*"]
     }
   },
