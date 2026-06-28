@@ -39,9 +39,9 @@
 
 ## 4. Intervals on a number line
 
-- [ ] 4.1 `mergeIntervals`
-- [ ] 4.2 `insertIntervals`
-- [ ] 4.3 `summaryRanges`
+- [x] 4.1 `mergeIntervals`
+- [x] 4.2 `insertIntervals`
+- [x] 4.3 `summaryRanges`
 
 ## 5. Grid / matrix
 

@@ -53,6 +53,12 @@ import { LongestConsecutiveViz } from "./algorithms/longestConsecutive";
 import longestConsecutiveSource from "@algos/longestConsecutive/longestConsecutive.ts?raw";
 import { SingleNumberViz } from "./algorithms/singleNumber";
 import singleNumberSource from "@algos/singleNumber/singleNumber.ts?raw";
+import { MergeIntervalsViz } from "./algorithms/mergeIntervals";
+import mergeIntervalsSource from "@algos/mergeIntervals/mergeIntervals.ts?raw";
+import { InsertIntervalsViz } from "./algorithms/insertIntervals";
+import insertIntervalsSource from "@algos/insertIntervals/insertIntervals.ts?raw";
+import { SummaryRangesViz } from "./algorithms/summaryRanges";
+import summaryRangesSource from "@algos/summaryRanges/summaryRanges.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -253,6 +259,27 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "hash-map", "O(n)"],
     Visualization: SingleNumberViz,
     source: singleNumberSource,
+  },
+  {
+    slug: "mergeIntervals",
+    title: "Merge Intervals",
+    tags: ["intervals", "sorting", "O(n log n)"],
+    Visualization: MergeIntervalsViz,
+    source: mergeIntervalsSource,
+  },
+  {
+    slug: "insertIntervals",
+    title: "Insert Interval",
+    tags: ["intervals", "sorting", "O(n log n)"],
+    Visualization: InsertIntervalsViz,
+    source: insertIntervalsSource,
+  },
+  {
+    slug: "summaryRanges",
+    title: "Summary Ranges",
+    tags: ["intervals", "hash-map", "O(n)"],
+    Visualization: SummaryRangesViz,
+    source: summaryRangesSource,
   },
 ];
 
