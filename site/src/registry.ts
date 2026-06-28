@@ -41,6 +41,18 @@ import { HIndexViz } from "./algorithms/hIndex";
 import hIndexSource from "@algos/hIndex/hIndex.ts?raw";
 import { CanCompleteCircuitViz } from "./algorithms/canCompleteCircuit";
 import canCompleteCircuitSource from "@algos/canCompleteCircuit/canCompleteCircuit.ts?raw";
+import { IsAnagramViz } from "./algorithms/isAnagram";
+import isAnagramSource from "@algos/isAnagram/isAnagram.ts?raw";
+import { GroupAnagramsViz } from "./algorithms/groupAnagrams";
+import groupAnagramsSource from "@algos/groupAnagrams/groupAnagrams.ts?raw";
+import { IsIsomorphicViz } from "./algorithms/isIsomorphic";
+import isIsomorphicSource from "@algos/isIsomorphic/isIsomorphic.ts?raw";
+import { WordPatternViz } from "./algorithms/wordPattern";
+import wordPatternSource from "@algos/wordPattern/wordPattern.ts?raw";
+import { LongestConsecutiveViz } from "./algorithms/longestConsecutive";
+import longestConsecutiveSource from "@algos/longestConsecutive/longestConsecutive.ts?raw";
+import { SingleNumberViz } from "./algorithms/singleNumber";
+import singleNumberSource from "@algos/singleNumber/singleNumber.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -199,6 +211,48 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "greedy", "O(n²)"],
     Visualization: CanCompleteCircuitViz,
     source: canCompleteCircuitSource,
+  },
+  {
+    slug: "isAnagram",
+    title: "Valid Anagram",
+    tags: ["string", "hash-map", "O(n)"],
+    Visualization: IsAnagramViz,
+    source: isAnagramSource,
+  },
+  {
+    slug: "groupAnagrams",
+    title: "Group Anagrams",
+    tags: ["string", "hash-map", "sorting", "O(n·k log k)"],
+    Visualization: GroupAnagramsViz,
+    source: groupAnagramsSource,
+  },
+  {
+    slug: "isIsomorphic",
+    title: "Isomorphic Strings",
+    tags: ["string", "hash-map", "O(n)"],
+    Visualization: IsIsomorphicViz,
+    source: isIsomorphicSource,
+  },
+  {
+    slug: "wordPattern",
+    title: "Word Pattern",
+    tags: ["string", "hash-map", "O(n)"],
+    Visualization: WordPatternViz,
+    source: wordPatternSource,
+  },
+  {
+    slug: "longestConsecutive",
+    title: "Longest Consecutive Sequence",
+    tags: ["array", "hash-map", "sorting", "O(n log n)"],
+    Visualization: LongestConsecutiveViz,
+    source: longestConsecutiveSource,
+  },
+  {
+    slug: "singleNumber",
+    title: "Single Number",
+    tags: ["array", "hash-map", "O(n)"],
+    Visualization: SingleNumberViz,
+    source: singleNumberSource,
   },
 ];
 

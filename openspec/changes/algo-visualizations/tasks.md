@@ -30,12 +30,12 @@
 
 ## 3. Hash table (key → value)
 
-- [ ] 3.1 `isAnagram`
-- [ ] 3.2 `groupAnagrams`
-- [ ] 3.3 `isIsomorphic`
-- [ ] 3.4 `wordPattern`
-- [ ] 3.5 `longestConsecutive`
-- [ ] 3.6 `singleNumber`
+- [x] 3.1 `isAnagram`
+- [x] 3.2 `groupAnagrams`
+- [x] 3.3 `isIsomorphic`
+- [x] 3.4 `wordPattern`
+- [x] 3.5 `longestConsecutive`
+- [x] 3.6 `singleNumber`
 
 ## 4. Intervals on a number line
 
