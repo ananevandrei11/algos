@@ -61,6 +61,8 @@ import { SummaryRangesViz } from "./algorithms/summaryRanges";
 import summaryRangesSource from "@algos/summaryRanges/summaryRanges.ts?raw";
 import { SpiralOrderViz } from "./algorithms/spiralOrder";
 import spiralOrderSource from "@algos/spiralOrder/spiralOrder.ts?raw";
+import { RotateViz } from "./algorithms/rotate";
+import rotateSource from "@algos/rotate/rotate.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -289,6 +291,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["matrix", "simulation", "O(m*n)"],
     Visualization: SpiralOrderViz,
     source: spiralOrderSource,
+  },
+  {
+    slug: "rotate",
+    title: "Rotate Array",
+    tags: ["array", "two-pointers", "in-place", "O(n)"],
+    Visualization: RotateViz,
+    source: rotateSource,
   },
 ];
 

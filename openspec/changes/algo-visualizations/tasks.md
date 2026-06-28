@@ -46,7 +46,7 @@
 ## 5. Grid / matrix
 
 - [x] 5.1 `spiralOrder`
-- [ ] 5.2 `rotate`
+- [x] 5.2 `rotate`
 
 ## 6. Bit row
 
