@@ -50,8 +50,8 @@
 
 ## 6. Bit row
 
-- [ ] 6.1 `hammingWeight`
-- [ ] 6.2 `reverseBits`
+- [x] 6.1 `hammingWeight`
+- [x] 6.2 `reverseBits`
 - [ ] 6.3 `addBinary`
 
 ## 7. Linked list / stack

@@ -63,6 +63,10 @@ import { SpiralOrderViz } from "./algorithms/spiralOrder";
 import spiralOrderSource from "@algos/spiralOrder/spiralOrder.ts?raw";
 import { RotateViz } from "./algorithms/rotate";
 import rotateSource from "@algos/rotate/rotate.ts?raw";
+import { HammingWeightViz } from "./algorithms/hammingWeight";
+import hammingWeightSource from "@algos/hammingWeight/hammingWeight.ts?raw";
+import { ReverseBitsViz } from "./algorithms/reverseBits";
+import reverseBitsSource from "@algos/reverseBits/reverseBits.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -298,6 +302,20 @@ export const algorithms: AlgoEntry[] = [
     tags: ["array", "two-pointers", "in-place", "O(n)"],
     Visualization: RotateViz,
     source: rotateSource,
+  },
+  {
+    slug: "hammingWeight",
+    title: "Number of 1 Bits",
+    tags: ["bits", "math", "O(log n)"],
+    Visualization: HammingWeightViz,
+    source: hammingWeightSource,
+  },
+  {
+    slug: "reverseBits",
+    title: "Reverse Bits",
+    tags: ["bits", "math", "O(32)"],
+    Visualization: ReverseBitsViz,
+    source: reverseBitsSource,
   },
 ];
 

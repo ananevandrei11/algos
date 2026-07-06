@@ -3,6 +3,9 @@ node_modules
 .vscode
 .claude
 CLAUDE.md
+.codex
+AGENTS.md
 /dist
 dist
 .github_token.txt
+.DS_Store
