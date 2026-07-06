@@ -205,6 +205,24 @@ h1 {
   min-height: 180px;
 }
 
+/* Grid / matrix */
+.matrix-grid {
+  display: grid;
+  gap: 6px;
+  margin: 24px 0 0;
+}
+.cell.active {
+  background: #78350f;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px #f59e0b inset;
+  color: #fef3c7;
+}
+.cell.visited {
+  background: #111318;
+  border-color: #1f2430;
+  color: #374151;
+}
+
 /* Controls */
 .controls {
   margin-top: 20px;
