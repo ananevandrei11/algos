@@ -52,16 +52,16 @@
 
 - [x] 6.1 `hammingWeight`
 - [x] 6.2 `reverseBits`
-- [ ] 6.3 `addBinary`
+- [x] 6.3 `addBinary`
 
 ## 7. Linked list / stack
 
-- [ ] 7.1 `mergeTwoSortedLists`
-- [ ] 7.2 `isValidParentheses`
+- [x] 7.1 `mergeTwoSortedLists`
+- [x] 7.2 `isValidParentheses`
 
 ## 8. Scalar / string in focus
 
-- [ ] 8.1 `mySqrt`
+- [x] 8.1 `mySqrt`
 - [ ] 8.2 `isHappy`
 - [ ] 8.3 `plusOne`
 - [ ] 8.4 `isPalindromeNumber`
