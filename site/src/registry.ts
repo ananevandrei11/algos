@@ -67,6 +67,14 @@ import { HammingWeightViz } from "./algorithms/hammingWeight";
 import hammingWeightSource from "@algos/hammingWeight/hammingWeight.ts?raw";
 import { ReverseBitsViz } from "./algorithms/reverseBits";
 import reverseBitsSource from "@algos/reverseBits/reverseBits.ts?raw";
+import { AddBinaryViz } from "./algorithms/addBinary";
+import addBinarySource from "@algos/addBinary/addBinary.ts?raw";
+import { IsValidParenthesesViz } from "./algorithms/isValidParentheses";
+import isValidParenthesesSource from "@algos/isValidParentheses/isValidParentheses.ts?raw";
+import { MergeTwoSortedListsViz } from "./algorithms/mergeTwoSortedLists";
+import mergeTwoSortedListsSource from "@algos/mergeTwoSortedLists/mergeTwoSortedLists.ts?raw";
+import { MySqrtViz } from "./algorithms/mySqrt";
+import mySqrtSource from "@algos/mySqrt/mySqrt.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -316,6 +324,34 @@ export const algorithms: AlgoEntry[] = [
     tags: ["bits", "math", "O(32)"],
     Visualization: ReverseBitsViz,
     source: reverseBitsSource,
+  },
+  {
+    slug: "addBinary",
+    title: "Add Binary",
+    tags: ["bits", "string", "carry", "O(n)"],
+    Visualization: AddBinaryViz,
+    source: addBinarySource,
+  },
+  {
+    slug: "isValidParentheses",
+    title: "Valid Parentheses",
+    tags: ["stack", "string", "O(n)"],
+    Visualization: IsValidParenthesesViz,
+    source: isValidParenthesesSource,
+  },
+  {
+    slug: "mergeTwoSortedLists",
+    title: "Merge Two Sorted Lists",
+    tags: ["linked-list", "merge", "O(m+n)"],
+    Visualization: MergeTwoSortedListsViz,
+    source: mergeTwoSortedListsSource,
+  },
+  {
+    slug: "mySqrt",
+    title: "Sqrt(x)",
+    tags: ["math", "newton-method", "O(log x)"],
+    Visualization: MySqrtViz,
+    source: mySqrtSource,
   },
 ];
 
