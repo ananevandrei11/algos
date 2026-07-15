@@ -75,6 +75,26 @@ import { MergeTwoSortedListsViz } from "./algorithms/mergeTwoSortedLists";
 import mergeTwoSortedListsSource from "@algos/mergeTwoSortedLists/mergeTwoSortedLists.ts?raw";
 import { MySqrtViz } from "./algorithms/mySqrt";
 import mySqrtSource from "@algos/mySqrt/mySqrt.ts?raw";
+import { IsHappyViz } from "./algorithms/isHappy";
+import isHappySource from "@algos/isHappy/isHappy.ts?raw";
+import { PlusOneViz } from "./algorithms/plusOne";
+import plusOneSource from "@algos/plusOne/plusOne.ts?raw";
+import { IsPalindromeNumberViz } from "./algorithms/isPalindromeNumber";
+import isPalindromeNumberSource from "@algos/isPalindromeNumber/isPalindromeNumber.ts?raw";
+import { RomanToIntViz } from "./algorithms/romanToInt";
+import romanToIntSource from "@algos/romanToInt/romanToInt.ts?raw";
+import { IntToRomanMediumViz } from "./algorithms/intToRomanMedium";
+import intToRomanMediumSource from "@algos/intToRomanMedium/intToRomanMedium.ts?raw";
+import { LengthOfLastWordViz } from "./algorithms/lengthOfLastWord";
+import lengthOfLastWordSource from "@algos/lengthOfLastWord/lengthOfLastWord.ts?raw";
+import { LongestCommonPrefixViz } from "./algorithms/longestCommonPrefix";
+import longestCommonPrefixSource from "@algos/longestCommonPrefix/longestCommonPrefix.ts?raw";
+import { StrStrViz } from "./algorithms/strStr";
+import strStrSource from "@algos/strStr/strStr.ts?raw";
+import { ConvertZigZagViz } from "./algorithms/convertZigZag";
+import convertZigZagSource from "@algos/convertZigZag/convertZigZag.ts?raw";
+import { RandomizedSetViz } from "./algorithms/RandomizedSet";
+import randomizedSetSource from "@algos/RandomizedSet/RandomizedSet.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -352,6 +372,76 @@ export const algorithms: AlgoEntry[] = [
     tags: ["math", "newton-method", "O(log x)"],
     Visualization: MySqrtViz,
     source: mySqrtSource,
+  },
+  {
+    slug: "isHappy",
+    title: "Happy Number",
+    tags: ["math", "hash-set", "cycle-detection", "O(log n)"],
+    Visualization: IsHappyViz,
+    source: isHappySource,
+  },
+  {
+    slug: "plusOne",
+    title: "Plus One",
+    tags: ["array", "math", "carry", "O(n)"],
+    Visualization: PlusOneViz,
+    source: plusOneSource,
+  },
+  {
+    slug: "isPalindromeNumber",
+    title: "Palindrome Number",
+    tags: ["math", "two-pointers", "O(log n)"],
+    Visualization: IsPalindromeNumberViz,
+    source: isPalindromeNumberSource,
+  },
+  {
+    slug: "romanToInt",
+    title: "Roman to Integer",
+    tags: ["string", "hash-map", "O(n)"],
+    Visualization: RomanToIntViz,
+    source: romanToIntSource,
+  },
+  {
+    slug: "intToRomanMedium",
+    title: "Integer to Roman",
+    tags: ["math", "greedy", "O(1)"],
+    Visualization: IntToRomanMediumViz,
+    source: intToRomanMediumSource,
+  },
+  {
+    slug: "lengthOfLastWord",
+    title: "Length of Last Word",
+    tags: ["string", "two-pointers", "O(n)"],
+    Visualization: LengthOfLastWordViz,
+    source: lengthOfLastWordSource,
+  },
+  {
+    slug: "longestCommonPrefix",
+    title: "Longest Common Prefix",
+    tags: ["string", "O(n·m)"],
+    Visualization: LongestCommonPrefixViz,
+    source: longestCommonPrefixSource,
+  },
+  {
+    slug: "strStr",
+    title: "Find the Index of the First Occurrence in a String",
+    tags: ["string", "brute-force", "O(n·m)"],
+    Visualization: StrStrViz,
+    source: strStrSource,
+  },
+  {
+    slug: "convertZigZag",
+    title: "Zigzag Conversion",
+    tags: ["string", "simulation", "O(n)"],
+    Visualization: ConvertZigZagViz,
+    source: convertZigZagSource,
+  },
+  {
+    slug: "RandomizedSet",
+    title: "Insert Delete GetRandom O(1)",
+    tags: ["hash-table", "array", "design", "O(1)"],
+    Visualization: RandomizedSetViz,
+    source: randomizedSetSource,
   },
 ];
 

@@ -1,7 +1,5 @@
 node_modules
 /node_modules
-.vscode
-.claude
 CLAUDE.md
 .codex
 AGENTS.md
