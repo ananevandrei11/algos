@@ -93,6 +93,8 @@ import { StrStrViz } from "./algorithms/strStr";
 import strStrSource from "@algos/strStr/strStr.ts?raw";
 import { ConvertZigZagViz } from "./algorithms/convertZigZag";
 import convertZigZagSource from "@algos/convertZigZag/convertZigZag.ts?raw";
+import { RandomizedSetViz } from "./algorithms/RandomizedSet";
+import randomizedSetSource from "@algos/RandomizedSet/RandomizedSet.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -433,6 +435,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["string", "simulation", "O(n)"],
     Visualization: ConvertZigZagViz,
     source: convertZigZagSource,
+  },
+  {
+    slug: "RandomizedSet",
+    title: "Insert Delete GetRandom O(1)",
+    tags: ["hash-table", "array", "design", "O(1)"],
+    Visualization: RandomizedSetViz,
+    source: randomizedSetSource,
   },
 ];
 
