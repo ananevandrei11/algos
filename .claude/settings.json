@@ -1,0 +1,57 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/andreiananev/Documents/WEBDEV/CodeExplore/algos/.claude/bin/notify.sh\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/andreiananev/Documents/WEBDEV/CodeExplore/algos/.claude/bin/notify.sh\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/andreiananev/Documents/WEBDEV/CodeExplore/algos/.claude/bin/protected.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "playwright": {
+      "disabled": true
+    },
+    "Claude_Preview": {
+      "disabled": true
+    },
+    "mcp-registry": {
+      "disabled": true
+    },
+    "scheduled-tasks": {
+      "disabled": true
+    },
+    "Claude_in_Chrome": {
+      "disabled": true
+    },
+    "ccd_session_mgmt": {
+      "disabled": true
+    }
+  }
+}

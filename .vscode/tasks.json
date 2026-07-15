@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "New Algorithm",
+      "type": "shell",
+      "command": "bash scripts/create-algo.sh ${input:algorithmName}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "algorithmName",
+      "description": "Algorithm name (camelCase)",
+      "default": "",
+      "type": "promptString"
+    }
+  ]
+}
