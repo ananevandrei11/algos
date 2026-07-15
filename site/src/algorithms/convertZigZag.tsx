@@ -13,6 +13,7 @@ interface State {
   index: number;
   char: string;
   row: number;
+  rowBefore: number;
   step: number;
   rows: string[];
   log: LogEvent;
@@ -22,7 +23,7 @@ function buildStates(s: string, numRows: number): { states: State[]; answer: str
   const states: State[] = [];
 
   if (numRows === 1) {
-    states.push({ s, numRows, index: -1, char: "", row: 0, step: -1, rows: [s], log: { kind: "single-row" } });
+    states.push({ s, numRows, index: -1, char: "", row: 0, rowBefore: 0, step: -1, rows: [s], log: { kind: "single-row" } });
     return { states, answer: s };
   }
 
@@ -47,6 +48,7 @@ function buildStates(s: string, numRows: number): { states: State[]; answer: str
       index,
       char: c,
       row,
+      rowBefore,
       step,
       rows: [...rows],
       log: { kind: "append", index, char: c, rowBefore, flipped, step, rowAfter: row },
@@ -56,7 +58,7 @@ function buildStates(s: string, numRows: number): { states: State[]; answer: str
   }
 
   const result = rows.join("");
-  states.push({ s, numRows, index, char: "", row, step, rows: [...rows], log: { kind: "done", result } });
+  states.push({ s, numRows, index, char: "", row, rowBefore: row, step, rows: [...rows], log: { kind: "done", result } });
   return { states, answer: result };
 }
 
@@ -94,7 +96,7 @@ function ConvertZigZagView({ state }: { state: State }) {
               {ri}
             </span>
             {rowStr.split("").map((ch, ci) => {
-              const isLast = ri === state.row && ci === rowStr.length - 1 && ch === state.char;
+              const isLast = ri === state.rowBefore && ci === rowStr.length - 1 && ch === state.char;
               const cls = ["cell"];
               if (isLast) cls.push("active");
               return (
