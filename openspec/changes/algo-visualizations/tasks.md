@@ -62,15 +62,15 @@
 ## 8. Scalar / string in focus
 
 - [x] 8.1 `mySqrt`
-- [ ] 8.2 `isHappy`
-- [ ] 8.3 `plusOne`
-- [ ] 8.4 `isPalindromeNumber`
-- [ ] 8.5 `romanToInt`
-- [ ] 8.6 `intToRomanMedium`
-- [ ] 8.7 `lengthOfLastWord`
-- [ ] 8.8 `longestCommonPrefix`
-- [ ] 8.9 `strStr`
-- [ ] 8.10 `convertZigZag`
+- [x] 8.2 `isHappy`
+- [x] 8.3 `plusOne`
+- [x] 8.4 `isPalindromeNumber`
+- [x] 8.5 `romanToInt`
+- [x] 8.6 `intToRomanMedium`
+- [x] 8.7 `lengthOfLastWord`
+- [x] 8.8 `longestCommonPrefix`
+- [x] 8.9 `strStr`
+- [x] 8.10 `convertZigZag`
 
 ## 9. Special data structures
 
