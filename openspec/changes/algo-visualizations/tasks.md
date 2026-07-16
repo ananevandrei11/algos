@@ -75,7 +75,7 @@
 ## 9. Special data structures
 
 - [x] 9.1 `RandomizedSet`
-- [ ] 9.2 `parseArgs`
+- [x] 9.2 `parseArgs`
 
 ## 10. Catalog & verification
 

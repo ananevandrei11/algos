@@ -95,6 +95,8 @@ import { ConvertZigZagViz } from "./algorithms/convertZigZag";
 import convertZigZagSource from "@algos/convertZigZag/convertZigZag.ts?raw";
 import { RandomizedSetViz } from "./algorithms/RandomizedSet";
 import randomizedSetSource from "@algos/RandomizedSet/RandomizedSet.ts?raw";
+import { ParseArgsViz } from "./algorithms/parseArgs";
+import parseArgsSource from "@algos/parseArgs/parseArgs.ts?raw";
 
 // One entry per algorithm. Drives both the catalog and the /algo/$slug route.
 // A new algorithm = one module (states + view) + one entry here.
@@ -442,6 +444,13 @@ export const algorithms: AlgoEntry[] = [
     tags: ["hash-table", "array", "design", "O(1)"],
     Visualization: RandomizedSetViz,
     source: randomizedSetSource,
+  },
+  {
+    slug: "parseArgs",
+    title: "Parse Command Line Arguments",
+    tags: ["object", "hash-map", "parsing", "O(n)"],
+    Visualization: ParseArgsViz,
+    source: parseArgsSource,
   },
 ];
 
