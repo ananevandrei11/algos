@@ -6,3 +6,4 @@ AGENTS.md
 dist
 .github_token.txt
 .DS_Store
+.wrangler
