@@ -156,13 +156,9 @@ export function ParseArgsViz({ input = ["--verbose", "-d", "output.log", "--name
 
   return (
     <div>
-      <div className="verification">
-        {correct ? (
-          <span className="ok">✓ Correct</span>
-        ) : (
-          <span className="wrong">✗ Mismatch</span>
-        )}
-      </div>
+      <p className={correct ? "verify ok" : "verify fail"}>
+        {correct ? "✓ Correct" : "✗ Mismatch"}
+      </p>
       <StepPlayer states={states} render={(state) => <ParseArgsView state={state} />} />
     </div>
   );
