@@ -79,6 +79,6 @@
 
 ## 10. Catalog & verification
 
-- [ ] 10.1 Group catalog cards by category/tags in `site/src/routes/Catalog.tsx`
+- [x] 10.1 Group catalog cards by category/tags in `site/src/routes/Catalog.tsx`
 - [ ] 10.2 Run `cd site && npm run dev`, walk every page: Step/Auto/Reset work, log reads sensibly, source block shows the `src/` file, verification line is green
 - [ ] 10.3 Run `cd site && npm run build` (`tsc --noEmit && vite build`) — types and build clean

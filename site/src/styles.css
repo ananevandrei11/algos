@@ -277,3 +277,13 @@ button:disabled {
   color: #ef4444;
   font-weight: 600;
 }
+
+.category-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8a8f98;
+  text-transform: capitalize;
+  margin: 24px 0 12px 0;
+  padding-top: 12px;
+  border-top: 1px solid #2a2e3a;
+}
