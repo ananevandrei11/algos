@@ -3,16 +3,15 @@ import { parseArgs } from "@algos/parseArgs/parseArgs";
 import { StepPlayer } from "../components/StepPlayer";
 
 type LogEvent =
-  | { kind: "start"; arg: string; index: number }
   | { kind: "is-flag"; arg: string; key: string }
-  | { kind: "next-is-flag"; nextArg: string }
+  | { kind: "next-is-value"; nextArg: string }
   | { kind: "set-value"; key: string; value: string | boolean }
   | { kind: "done" };
 
 interface State {
+  args: string[];
   data: Record<string, string | boolean>;
-  currentIndex: number;
-  currentArg: string | null;
+  activeIndex: number;
   processedArgs: Set<number>;
   log: LogEvent;
 }
@@ -29,9 +28,9 @@ function buildStates(args: string[]): { states: State[]; answer: Record<string, 
       const key = i.replace(/^--?/, "");
 
       states.push({
+        args,
         data: { ...data },
-        currentIndex: ind,
-        currentArg: i,
+        activeIndex: ind,
         processedArgs: new Set(processedArgs),
         log: { kind: "is-flag", arg: i, key },
       });
@@ -42,40 +41,40 @@ function buildStates(args: string[]): { states: State[]; answer: Record<string, 
         processedArgs.add(ind);
 
         states.push({
+          args,
           data: { ...data },
-          currentIndex: ind,
-          currentArg: i,
+          activeIndex: ind,
           processedArgs: new Set(processedArgs),
           log: { kind: "set-value", key, value: true },
         });
       } else if (next !== undefined) {
         states.push({
+          args,
           data: { ...data },
-          currentIndex: ind,
-          currentArg: i,
+          activeIndex: ind,
           processedArgs: new Set(processedArgs),
-          log: { kind: "next-is-flag", nextArg: next },
+          log: { kind: "next-is-value", nextArg: next },
         });
 
-        data[key] = next;
+        data[key] = next || true;
         processedArgs.add(ind);
         processedArgs.add(ind + 1);
 
         states.push({
+          args,
           data: { ...data },
-          currentIndex: ind,
-          currentArg: i,
+          activeIndex: ind,
           processedArgs: new Set(processedArgs),
-          log: { kind: "set-value", key, value: next },
+          log: { kind: "set-value", key, value: data[key] },
         });
       } else {
         data[key] = true;
         processedArgs.add(ind);
 
         states.push({
+          args,
           data: { ...data },
-          currentIndex: ind,
-          currentArg: i,
+          activeIndex: ind,
           processedArgs: new Set(processedArgs),
           log: { kind: "set-value", key, value: true },
         });
@@ -84,9 +83,9 @@ function buildStates(args: string[]): { states: State[]; answer: Record<string, 
   }
 
   states.push({
+    args,
     data: { ...data },
-    currentIndex: args.length,
-    currentArg: null,
+    activeIndex: args.length,
     processedArgs: new Set(processedArgs),
     log: { kind: "done" },
   });
@@ -104,15 +103,14 @@ function ParseArgsView({ state }: { state: State }) {
       <div className="array-section">
         <h3>Arguments</h3>
         <div className="array-row">
-          {(state.currentArg ? [state.currentArg] : []).length > 0 ? (
-            <>
-              {Array.from(state.processedArgs).map((i) => (
-                <div key={i} className="array-item processed">
-                  "{state.currentArg}"
-                </div>
-              ))}
-            </>
-          ) : null}
+          {state.args.map((arg, i) => (
+            <div
+              key={i}
+              className={`array-item ${state.processedArgs.has(i) ? "processed" : ""} ${i === state.activeIndex ? "active" : ""}`}
+            >
+              "{arg}"
+            </div>
+          ))}
         </div>
       </div>
 
@@ -135,14 +133,14 @@ function ParseArgsView({ state }: { state: State }) {
           {state.log.kind === "is-flag" && (
             <span>Found flag: <code>{state.log.arg}</code> → key = <code>{state.log.key}</code></span>
           )}
-          {state.log.kind === "next-is-flag" && (
-            <span>Next arg is also a flag: <code>{state.log.nextArg}</code></span>
+          {state.log.kind === "next-is-value" && (
+            <span>Next arg is a value: <code>{state.log.nextArg}</code></span>
           )}
           {state.log.kind === "set-value" && (
             <span>Set <code>{state.log.key}</code> = <code>{typeof state.log.value === "boolean" ? String(state.log.value) : `"${state.log.value}"`}</code></span>
           )}
           {state.log.kind === "done" && (
-            <span>Done parsing</span>
+            <span>Done parsing. Result: {Object.keys(state.data).length} keys</span>
           )}
         </div>
       </div>
@@ -153,8 +151,8 @@ function ParseArgsView({ state }: { state: State }) {
 export function ParseArgsViz({ input = ["--verbose", "-d", "output.log", "--name", "test"] }: ParseArgsVizProps) {
   const { states, answer } = useMemo(() => buildStates(input), [input]);
 
-  const realAnswer = parseArgs(input);
-  const correct = JSON.stringify(answer) === JSON.stringify(realAnswer);
+  const realAnswer = useMemo(() => parseArgs(input), [input]);
+  const correct = useMemo(() => JSON.stringify(answer) === JSON.stringify(realAnswer), [answer, realAnswer]);
 
   return (
     <div>
