@@ -1,9 +1,9 @@
 node_modules
 /node_modules
-CLAUDE.md
 .codex
 AGENTS.md
 /dist
 dist
 .github_token.txt
 .DS_Store
+.wrangler
