@@ -114,7 +114,9 @@ function LengthOfLongestSubstringView({ state }: { state: State }) {
       <div className="pointers">
         {state.chars.map((_, idx) => (
           <div className="ptr" key={idx}>
-            {idx === state.left && <span className="l">L</span>}
+            {idx === state.left && idx !== state.right && (
+              <span className="l">L</span>
+            )}
             {idx === state.right && idx !== state.left && (
               <span className="r">R</span>
             )}
@@ -184,10 +186,13 @@ export function LengthOfLongestSubstringViz() {
       <h1>lengthOfLongestSubstring("{INPUT}")</h1>
       <p className="legend">
         Sliding window with a Map. <b className="c-left">L</b> and{" "}
-        <b className="c-right">R</b> define the current window. When{" "}
-        <code>s[R]</code> was seen before inside the window, advance{" "}
-        <b className="c-left">L</b> past its last position. Map stores each
-        character's most recent index.
+        <b className="c-right">R</b> mark the window's edges; window length
+        is <code>R − L + 1</code>. <b className="c-right">R</b> moves right
+        one step at a time. When <code>s[R]</code> was seen before{" "}
+        <em>and its last position is still inside the window</em>, advance{" "}
+        <b className="c-left">L</b> to just past that position — this keeps
+        every character in the window unique. The Map stores each
+        character's most recent index so this check is O(1).
       </p>
 
       <StepPlayer
